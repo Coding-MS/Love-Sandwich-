@@ -25,11 +25,18 @@ def get_sales_data():
 
 def validate_data(values):
    """ Validation function """
+   print(values)
    try: 
         if len(values) != 6 :
             raise ValueError(
                 f"Exactly 6 values required, you have provided {len(values)}"
              )
+        for item in values: 
+            if not isinstance(item,(int,float)):
+                raise TypeError(
+                    f"All values must be numbers"
+                )
+
    except ValueError as e:
        print (f"Invalid data: {e}, please try again \n")
 
